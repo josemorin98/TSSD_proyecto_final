@@ -1,0 +1,226 @@
+version: '3'
+services:
+  # preparation_1:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5600:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 1 5600 148.247.201.222 0 5600 3 5700
+
+  # preparation_2:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5601:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 2 5601 148.247.201.222 0 5600 3 5700
+
+  # preparation_3:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5602:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 3 5602 148.247.201.222 0 5600 3 5700
+
+  # preparation_4:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5603:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 4 5603 148.247.201.222 1 5600 3 5700
+  
+  # conquer:
+  #   image: conquer
+  #   build:
+  #     context: ./conquer
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5700:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/conquer.py 3 148.247.201.222 5700 
+
+  cbNodo_1:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4000:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 1 4000 148.247.201.222 0 4000 11
+  
+  cbNodo_2:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4001:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 2 4001 148.247.201.222 0 4000 11
+  
+  cbNodo_3:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4002:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 3 4002 148.247.201.222 0 4000 11
+  
+  cbNodo_4:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4003:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 4 4003 148.247.201.222 0 4000 11
+  
+  cbNodo_5:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4004:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 5 4004 148.247.201.222 0 4000 11
+
+  cbNodo_6:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4005:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 6 4005 148.247.201.222 0 4000 11
+
+  cbNodo_7:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4006:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 7 4006 148.247.201.222 0 4000 11
+  
+  cbNodo_8:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4007:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 8 4007 148.247.201.222 0 4000 11
+  
+  cbNodo_9:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4008:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 9 4008 148.247.201.222 0 4000 11
+
+  
+  cbNodo_10:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4009:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 10 4009 148.247.201.222 0 4000 11
+  
+  cbNodo_11:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4010:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 11 4010 148.247.201.222 0 4000 11
+
+  cbNodo_12:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 4011:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app.py 12 4011 148.247.201.222 1 4000 11
+
+networks:
+  clus_net:

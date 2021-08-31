@@ -1,0 +1,42 @@
+version: '3'
+services:
+  preparation_1:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5600:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 1 5600 192.168.0.12 0 5600 2 5700
+
+  preparation_2:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5601:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 2 5601 192.168.0.12 0 5600 2 5700
+
+  preparation_3:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5602:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 3 5602 192.168.0.12 1 5600 2 5700
+networks:
+  clus_net:

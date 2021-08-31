@@ -1,0 +1,159 @@
+version: '3'
+services:
+  preparation_1:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5600:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 1 5600 192.168.0.12 0 5600 12 5700
+
+  preparation_2:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5601:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 2 5601 192.168.0.12 0 5600 12 5700
+
+  preparation_3:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5602:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 3 5602 192.168.0.12 0 5600 12 5700
+
+  preparation_4:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5603:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 4 5603 192.168.0.12 0 5600 12 5700
+
+  preparation_5:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5604:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 5 5604 192.168.0.12 0 5600 12 5700
+
+  preparation_6:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5605:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 6 5605 192.168.0.12 0 5600 12 5700
+
+  preparation_7:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5606:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 7 5606 192.168.0.12 0 5600 12 5700
+
+  preparation_8:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5607:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 8 5607 192.168.0.12 0 5600 12 5700
+
+  preparation_9:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5608:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 9 5608 192.168.0.12 0 5600 12 5700
+
+  preparation_10:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5609:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 10 5609 192.168.0.12 0 5600 12 5700
+
+  preparation_11:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5610:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 11 5610 192.168.0.12 0 5600 12 5700
+
+  preparation_12:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5611:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/preprocesing.py 12 5611 192.168.0.12 1 5600 12 5700
+networks:
+  clus_net:

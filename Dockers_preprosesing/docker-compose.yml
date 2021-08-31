@@ -1,0 +1,120 @@
+version: '3'
+services:
+  # preparation_1:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5600:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+  #   command: python /app/preprocesing.py 1 5600 192.168.0.12 0 5600 3 5700
+
+  # preparation_2:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5601:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+  #   command: python /app/preprocesing.py 2 5601 192.168.0.12 0 5600 3 5700
+
+  # preparation_3:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5602:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+  #   command: python /app/preprocesing.py 3 5602 192.168.0.12 0 5600 3 5700
+
+  # preparation_4:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5603:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+  #   command: python /app/preprocesing.py 4 5603 192.168.0.12 1 5600 3 5700
+  
+  # conquer:
+  #   image: conquer
+  #   build:
+  #     context: ./conquer
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5700:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+  #   command: python /app/conquer.py 3 192.168.0.12 5700 
+
+  cbNodo_1:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/app.py 1 3000 192.168.0.12 0 3000 3
+  
+  cbNodo_2:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 3001:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/app.py 2 3001 192.168.0.12 0 3000 3
+  
+  cbNodo_3:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 3002:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/app.py 3 3002 192.168.0.12 0 3000 3
+  
+  cbNodo_4:
+    image: chord_bully
+    build:
+      context: ./cbNodo
+      dockerfile: ./Dockerfile
+    ports:
+      - 3003:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/morin/Escritorio/Proyecto_Final_TSSD/Files:/app/data/
+    command: python /app/app.py 4 3003 192.168.0.12 1 3000 3
+networks:
+  clus_net:

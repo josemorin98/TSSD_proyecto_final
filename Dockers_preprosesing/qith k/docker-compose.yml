@@ -1,0 +1,186 @@
+version: '3'
+services:
+  preparation_1:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5600:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/preprocesing.py 1 5600 148.247.201.222 0 5600 3 5700
+# 148.247.201.222
+  preparation_2:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5601:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/preprocesing.py 2 5601 148.247.201.222 0 5600 3 5700
+
+  preparation_3:
+    image: preparation
+    build:
+      context: ./preparation
+      dockerfile: ./Dockerfile
+    ports:
+      - 5602:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/preprocesing.py 3 5602 148.247.201.222 1 5600 3 5700
+
+  # preparation_4:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5603:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 4 5603 148.247.201.222 0 5600 6 5700
+
+  # preparation_5:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5604:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 5 5604 148.247.201.222 0 5600 6 5700
+
+  # preparation_6:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5605:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 6 5605 148.247.201.222 1 5600 6 5700
+
+  # preparation_7:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5606:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 7 5606 148.247.201.222 0 5600 6 5700
+
+  # preparation_8:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5607:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 8 5607 148.247.201.222 0 5600 6 5700
+
+  # preparation_9:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5608:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 9 5608 148.247.201.222 1 5600 6 5700
+
+  # preparation_10:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5609:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 10 5609 148.247.201.222 0 5600 6 5700
+
+  # preparation_11:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5610:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 11 5610 148.247.201.222 0 5600 6 5700
+
+  # preparation_12:
+  #   image: preparation
+  #   build:
+  #     context: ./preparation
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 5611:5000
+  #   networks:
+  #     - clus_net
+  #   volumes:
+  #     - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+  #   command: python /app/preprocesing.py 12 5611 148.247.201.222 1 5600 6 5700
+  
+  conquer:
+    image: conquer
+    build:
+      context: ./conquer
+      dockerfile: ./Dockerfile
+    ports:
+      - 5700:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/conquer.py 2 148.247.201.222 5700
+  
+  loadbalance_k:
+    image: loadbalance_k
+    build:
+      context: ./loadbalance_k
+      dockerfile: ./Dockerfile
+    ports:
+      - 5800:5000
+    networks:
+      - clus_net
+    volumes:
+      - /home/jmorin/Proyecto_Final_TSSD/Files/:/app/data/
+    command: python /app/app_k.py 1 148.247.201.222 5900
+
+networks:
+  clus_net:
